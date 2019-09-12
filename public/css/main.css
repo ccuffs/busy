@@ -1,0 +1,136 @@
+body.status-page {
+  background-color: #f0f3f4;
+  color: #333333;
+}
+p,
+strong {
+  color: #333333 !important;
+}
+.reds {
+  color: #ff6f6f !important;
+}
+.blues {
+  color: #3498db !important;
+}
+.greens {
+  color: #7ed321 !important;
+}
+.yellows {
+  color: #f7ca18 !important;
+}
+.oranges {
+  color: #ff8800 !important;
+}
+.metrics {
+  color: #0dccc0 !important;
+}
+.links {
+  color: #7ed321 !important;
+}
+
+/**
+ * Banner background
+ */
+.app-banner {
+  background-color: !important;
+}
+
+.app-banner-padding {
+  padding: 40px 0 !important;
+}
+
+/**
+ * Alert overrides.
+ */
+.alert {
+  background-color: #f7ca18;
+  border-color: #deb515;
+  color: white;
+}
+.alert.alert-success {
+  background-color: #7ed321;
+  border-color: #71bd1d;
+  color: white;
+}
+.alert.alert-info {
+  background-color: #3498db;
+  border-color: #2e88c5;
+  color: white;
+}
+.alert.alert-danger {
+  background-color: #ff6f6f;
+  border-color: #e56363;
+  color: white;
+}
+
+/**
+ * Button Overrides
+ */
+.btn.links {
+  color: #ac8d10;
+}
+.btn.btn-success {
+  background-color: #7ed321;
+  border-color: #71bd1d;
+  color: white;
+}
+.btn.btn-success.links {
+  color: #589317;
+}
+.btn.btn-success.btn-outline {
+  background-color: transparent;
+  border-color: #7ed321;
+  color: #7ed321;
+}
+.btn.btn-success.btn-outline:hover {
+  background-color: #7ed321;
+  border-color: #71bd1d;
+  color: white;
+}
+.btn.btn-info {
+  background-color: #3498db;
+  border-color: #2e88c5;
+  color: white;
+}
+.btn.btn-info.links {
+  color: #246a99;
+}
+.btn.btn-danger {
+  background-color: #ff6f6f;
+  border-color: #e56363;
+  color: white;
+}
+.btn.btn-danger.links {
+  color: #b24d4d;
+}
+
+/**
+ * Background fills Overrides
+ */
+.component {
+  background-color: #ffffff;
+  border-color: #e5e5e5;
+}
+.sub-component {
+  background-color: #ffffff;
+  border-color: #e5e5e5;
+}
+.incident {
+  background-color: #ffffff;
+  border-color: #e5e5e5;
+}
+.status-icon {
+  background-color: #ffffff;
+  border-color: #e5e5e5;
+}
+.panel.panel-message:before {
+  border-left-color: #ffffff !important;
+  border-right-color: #ffffff !important;
+}
+.panel.panel-message:after {
+  border-left-color: #ffffff !important;
+  border-right-color: #ffffff !important;
+}
+.footer a {
+  color: #333333;
+}
