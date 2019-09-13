@@ -1381,16 +1381,16 @@
         },
         {
             "name": "laravel/lumen-framework",
-            "version": "v6.0.0",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/lumen-framework.git",
-                "reference": "1fdf03d85447d9ab964eac1dd5f613d346e2be9b"
+                "reference": "9b3182e48142e3e61648ed3733d18c0bfbee2f0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/lumen-framework/zipball/1fdf03d85447d9ab964eac1dd5f613d346e2be9b",
-                "reference": "1fdf03d85447d9ab964eac1dd5f613d346e2be9b",
+                "url": "https://api.github.com/repos/laravel/lumen-framework/zipball/9b3182e48142e3e61648ed3733d18c0bfbee2f0d",
+                "reference": "9b3182e48142e3e61648ed3733d18c0bfbee2f0d",
                 "shasum": ""
             },
             "require": {
@@ -1433,7 +1433,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.0-dev"
+                    "dev-master": "6.x-dev"
                 }
             },
             "autoload": {
@@ -1461,7 +1461,7 @@
                 "laravel",
                 "lumen"
             ],
-            "time": "2019-09-12T13:13:04+00:00"
+            "time": "2019-09-13T10:20:23+00:00"
         },
         {
             "name": "monolog/monolog",
