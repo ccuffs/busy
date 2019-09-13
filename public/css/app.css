@@ -2,7 +2,36 @@ body {
     background: #343433;
 }
   
+header {
+    margin-bottom: 25px;
+}
+
 div.row.section {
     padding-bottom: 1.5em;
     padding-top: 1.0em;
+}
+
+h4.card-title {
+    font-size: 1.3em;
+    margin-bottom: 0.1em;
+}
+
+.card-header {
+    font-weight: bold;
+}
+
+.status-icon-col {
+    position: relative;
+}
+
+.status-icon {
+    font-size: 5em;
+    position: absolute;
+    top: -20%;
+    left: 35%;
+}
+
+.info-icon {
+    font-size: 3.0em;
+    color: #b8b8b8;
 }

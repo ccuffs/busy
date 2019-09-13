@@ -87,8 +87,8 @@
                     <div class="card-header bg-success">Status</div>
                     <div class="card-body">
                         <div class="row justify-content-center">
-                            <div class="col-2 text-center">
-                                <i class="icon ion-md-checkmark-circle-outline text-success" style="font-size: 4em;"></i>
+                            <div class="col-2 text-center status-icon-col">
+                                <i class="icon ion-md-checkmark-circle-outline status-icon text-success"></i>
                             </div>
                             <div class="col-10">
                                 <h4 class="card-title">Disponível</h4>
@@ -106,8 +106,8 @@
                     <div class="card-header">Localização</div>
                     <div class="card-body">
                         <div class="row justify-content-center">
-                            <div class="col-2 text-center">
-                                <i class="icon ion-md-pin" style="font-size: 3em;"></i>
+                            <div class="col-2 text-center status-icon-col">
+                                <i class="icon ion-md-pin info-icon"></i>
                             </div>
                             <div class="col-10">
                                 <h4 class="card-title">{{ $place_name }}</h4>
