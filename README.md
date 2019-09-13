@@ -23,5 +23,9 @@ crontab -e
 ## Teste
 
 ```
+php artisan cache:clear
+```
+
+```
 php -S localhost:8000 -t public
 ```
