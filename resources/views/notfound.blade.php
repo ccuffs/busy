@@ -7,6 +7,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+    <!-- Mobile friendliness -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="description" content="Stay up to date with the latest service updates from Cachet Demo.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Cachet Demo">
+    <meta property="og:image" content="/img/ogimage.png">
+    <meta property="og:description" content="Stay up to date with the latest service updates from Cachet Demo.">
+
+    <!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
+    <meta http-equiv="cleartype" content="on">
+
+    <meta name="msapplication-TileColor" content="#7ED321" />
+    <meta name="msapplication-TileImage" content="/img/favicon.png" />
+
+    <link rel="icon" type="image/png" href="/img/favicon.ico">
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-touch-icon-152x152.png">
+
+    <!-- Estilos lindos da aplicação -->
     <link rel="stylesheet" href="./css/bootstrap.min.css" media="screen">
     <link rel="stylesheet" href="./css/ionicons.min.css" media="screen">
     <link rel="stylesheet" href="./css/froala_blocks.min.css" media="screen">
@@ -45,66 +75,8 @@
 
         <div class="row text-center justify-content-center">
             <div class="col-sm-6 m-sm-auto">
-                <h2>Fernando Bevilacqua</h2>
-                <h3>Ciência da Computação</h3>
-                <p>Professor, Chapecó/SC</p>
-            </div>
-        </div>
-
-        <div class="row justify-content-center section">
-            <div class="col-lg-8">
-                <div class="card text-white bg-dark border-success">
-                    <div class="card-header bg-success">Status</div>
-                    <div class="card-body">
-                        <div class="row justify-content-center">
-                            <div class="col-2 text-center">
-                                <i class="icon ion-md-checkmark-circle-outline text-success" style="font-size: 4em;"></i>
-                            </div>
-                            <div class="col-10">
-                                <h4 class="card-title">Disponível</h4>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>            
-
-        <div class="row justify-content-center section">
-            <div class="col-lg-8">
-                <div class="card text-white bg-dark border-secondary">
-                    <div class="card-header">Localização</div>
-                    <div class="card-body">
-                        <div class="row justify-content-center">
-                            <div class="col-2 text-center">
-                                <i class="icon ion-md-pin" style="font-size: 3em;"></i>
-                            </div>
-                            <div class="col-10">
-                                <h4 class="card-title">Sala 222</h4>
-                                <p class="card-text">Essa localização é aproximada e baseada no acesso ao AP AXXX-DDDF.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer text-muted">
-                        Visto nesse local há 5 minutos atrás.
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row justify-content-center section">
-            <div class="col-lg-8">
-                <div class="card text-white bg-dark border-secondary">
-                    <div class="card-header">Próximos compromissos</div>
-                    <div class="card-body">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><span class="text-muted"><i class="icon ion-md-calendar"></i> 14/09 - 16:00</span> Reunião do colegiado</li>
-                        </ul>
-                    </div>
-                    <div class="card-footer text-muted">
-                        Visto nesse local há 5 minutos atrás.
-                    </div>
-                </div>
+                <h2>Hum, algo está errado.</h2>
+                <p>O idUFFS <strong>{{ $uid }}</strong> é inválido. <br />Você tem certeza que digitou ele certo?</p>
             </div>
         </div>
     </div>

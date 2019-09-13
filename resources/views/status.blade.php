@@ -1,12 +1,11 @@
+
 <!DOCTYPE html>
-<html>
-
-<head>
+<html lang="en">
+  <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <link rel="alternate" type="application/atom+xml" href="/atom" title="Cachet Demo - Atom Feed">
-    <link rel="alternate" type="application/rss+xml" href="/rss" title="Cachet Demo - RSS Feed">
+    <title>Status - UFFS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Mobile friendliness -->
     <meta name="HandheldFriendly" content="True">
@@ -37,430 +36,140 @@
     <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-touch-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-touch-icon-152x152.png">
 
-    <title>Cachet Demo</title>
-
-    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,700&subset=latin" rel="stylesheet" type="text/css">
-    
-    <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="./css/main.css">
-</head>
-
-<body class="status-page ">
+    <!-- Estilos lindos da aplicação -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" href="./css/ionicons.min.css" media="screen">
+    <link rel="stylesheet" href="./css/froala_blocks.min.css" media="screen">
+    <link rel="stylesheet" href="./css/app.css" media="screen">
+  </head>
+  <body>
+    <header class="bg-dark">
+        <div class="container">
+            <nav class="navbar navbar-expand-md">
+            <a class="navbar-brand" href="https://www.froala.com">
+                <i class="icon ion-md-checkbox-outline text-success" style="font-size: 1.5em;"></i> UFFS Status
+            </a>
+        
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav11" aria-controls="navbarNav11" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarNav11">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.froala.com">About</a>
+                    </li>
+                </ul>
+                <a class="btn btn-outline-light ml-md-3" href="https://www.froala.com">Button</a>
+            </div>
+            </nav>
+        </div>
+    </header>
 
     <div class="container">
-        <div class="section-messages"></div>
-
-        <div class="section-status">
-            <div class="alert alert-success">All systems are operational {{ $name }}</div>
+        <div class="row text-center justify-content-center">
+            <div class="col-sm-2 m-sm-auto">
+                <img alt="image" class="img-fluid rounded-circle" src="./img/people/7.jpg">
+            </div>
         </div>
 
-        <div class="about-app">
-            <h2>About This Site</h2>
-            <p>This is the demo instance of <a href="https://cachethq.io?ref=demo">Cachet</a>. The open source status
-                page system, for everyone. An <a href="https://alt-three.com">Alt Three</a> product.</p>
-
+        <div class="row text-center justify-content-center">
+            <div class="col-sm-6 m-sm-auto">
+                <h2>{{ $name }}</h2>
+                <h3>Ciência da Computação</h3>
+                <p>Professor, Chapecó/SC</p>
+            </div>
         </div>
 
-        <div class="section-components">
-            <ul class="list-group components">
-                <li class="list-group-item group-name">
-                    <i class="ion-ios-minus-outline group-toggle"></i>
-                    <strong>Websites</strong> <i class="icon ion-md-heart"></i>
-
-                    <div class="pull-right">
-                        <i class="ion ion-ios-circle-filled text-component-1 greens" data-toggle="tooltip"
-                            title="Operational"></i>
-                    </div>
-                </li>
-
-                <div class="group-items ">
-                    <li class="list-group-item sub-component">
-                        <a href="https://cachethq.io" target="_blank" class="links">Website</a>
-
-
-                        <div class="pull-right">
-                            <small class="text-component-1 greens" data-toggle="tooltip"
-                                title="Last updated Thursday 12th September 2019 22:30:01">Operational</small>
-                        </div>
-                    </li>
-                    <li class="list-group-item sub-component">
-                        <a href="https://docs.cachethq.io" target="_blank" class="links">Documentation</a>
-
-                        <i class="ion ion-ios-help-outline help-icon" data-toggle="tooltip"
-                            data-title="Kindly powered by Readme.io" data-container="body"></i>
-
-                        <div class="pull-right">
-                            <small class="text-component-1 greens" data-toggle="tooltip"
-                                title="Last updated Thursday 12th September 2019 22:30:01">Operational</small>
-                        </div>
-                    </li>
-                </div>
-            </ul>
-            <ul class="list-group components">
-                <li class="list-group-item group-name">
-                    <i class="ion-ios-plus-outline group-toggle"></i>
-                    <strong>Alt Three</strong>
-
-                    <div class="pull-right">
-                        <i class="ion ion-ios-circle-filled text-component-1 greens" data-toggle="tooltip"
-                            title="Operational"></i>
-                    </div>
-                </li>
-
-                <div class="group-items hide">
-                    <li class="list-group-item sub-component">
-                        <a href="https://blog.alt-three.com" target="_blank" class="links">Blog</a>
-
-                        <i class="ion ion-ios-help-outline help-icon" data-toggle="tooltip"
-                            data-title="The Alt Three Blog." data-container="body"></i>
-
-                        <div class="pull-right">
-                            <small class="text-component-1 greens" data-toggle="tooltip"
-                                title="Last updated Thursday 12th September 2019 22:30:01">Operational</small>
-                        </div>
-                    </li>
-                    <li class="list-group-item sub-component">
-                        <a href="https://styleci.io" target="_blank" class="links">StyleCI</a>
-
-                        <i class="ion ion-ios-help-outline help-icon" data-toggle="tooltip"
-                            data-title="The PHP Coding Style Service." data-container="body"></i>
-
-                        <div class="pull-right">
-                            <small class="text-component-1 greens" data-toggle="tooltip"
-                                title="Last updated Thursday 12th September 2019 22:30:01">Operational</small>
-                        </div>
-                    </li>
-                </div>
-            </ul>
-
-            <ul class="list-group components">
-                <li class="list-group-item group-name">
-                    <strong>Other Components</strong>
-                </li>
-                <li class="list-group-item component">
-                    API
-
-                    <i class="ion ion-ios-help-outline help-icon" data-toggle="tooltip"
-                        data-title="Used by third-parties to connect to us" data-container="body"></i>
-
-                    <div class="pull-right">
-                        <small class="text-component-1 greens" data-toggle="tooltip"
-                            title="Last updated Thursday 12th September 2019 22:30:01">Operational</small>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-        <div class="section-metrics">
-            <ul class="list-group">
-                <li class="list-group-item metric" data-metric-id="1">
-                    <div class="row">
-                        <div class="col-xs-10">
-                            <strong>
-                                Cups of coffee
-                                <i class="ion ion-ios-help-outline" data-toggle="tooltip"
-                                    data-title="How many cups of coffee we&#039;ve drank."></i>
-                            </strong>
-                        </div>
-                        <div class="col-xs-2">
-                            <div class="dropdown pull-right">
-                                <a href="javascript: void(0);" class="btn btn-default dropdown-toggle"
-                                    data-toggle="dropdown"><span class='filter'>Last 12 Hours</span> <span
-                                        class="caret"></span></a>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a href="#" data-filter-type="last_hour">Last Hour</a></li>
-                                    <li><a href="#" data-filter-type="today">Last 12 Hours</a></li>
-                                    <li><a href="#" data-filter-type="week">Week</a></li>
-                                    <li><a href="#" data-filter-type="month">Month</a></li>
-                                </ul>
+        <div class="row justify-content-center section">
+            <div class="col-lg-8">
+                <div class="card text-white bg-dark border-success">
+                    <div class="card-header bg-success">Status</div>
+                    <div class="card-body">
+                        <div class="row justify-content-center">
+                            <div class="col-2 text-center">
+                                <i class="icon ion-md-checkmark-circle-outline text-success" style="font-size: 4em;"></i>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <canvas id="metric-1" data-metric-name="Cups of coffee" data-metric-suffix="Cups"
-                                data-metric-id="1" data-metric-group="today" data-metric-precision="2" height="160"
-                                width="600"></canvas>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-        <div class="section-timeline">
-            <h1>Past Incidents</h1>
-            <h4>12th September 2019</h4>
-            <div class="timeline">
-                <div class="content-wrapper">
-                    <div class="moment first">
-                        <div class="row event clearfix">
-                            <div class="col-sm-1">
-                                <div class="status-icon status-4" data-toggle="tooltip" title="Fixed"
-                                    data-placement="left">
-                                    <i class="icon ion-checkmark greens"></i>
-                                </div>
-                            </div>
-                            <div class="col-xs-10 col-xs-offset-2 col-sm-11 col-sm-offset-0">
-                                <div class="panel panel-message incident">
-                                    <div class="panel-heading">
-                                        <strong>Cachet supports Markdown!</strong>
-                                        <br>
-                                        <small class="date">
-                                            <a href="https://demo.cachethq.io/incident/1" class="links"><abbr
-                                                    class="timeago" data-toggle="tooltip" data-placement="right"
-                                                    title="Thursday 12th September 2019 22:30:01"
-                                                    data-timeago="2019-09-12T22:30:01+01:00"></abbr></a>
-                                        </small>
-                                    </div>
-                                    <div class="panel-body markdown-body">
-                                        <h1>Of course it does!</h1>
-                                        <p>What kind of web application doesn't these days?</p>
-                                        <h2>Headers are fun aren't they</h2>
-                                        <p>It's <em>exactly</em> why we need Markdown. For <strong>emphasis</strong> and
-                                            such.</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="moment ">
-                        <div class="row event clearfix">
-                            <div class="col-sm-1">
-                                <div class="status-icon status-4" data-toggle="tooltip" title="Fixed"
-                                    data-placement="left">
-                                    <i class="icon ion-checkmark greens"></i>
-                                </div>
-                            </div>
-                            <div class="col-xs-10 col-xs-offset-2 col-sm-11 col-sm-offset-0">
-                                <div class="panel panel-message incident">
-                                    <div class="panel-heading">
-                                        <strong>Awesome</strong>
-                                        <br>
-                                        <small class="date">
-                                            <a href="https://demo.cachethq.io/incident/2" class="links"><abbr
-                                                    class="timeago" data-toggle="tooltip" data-placement="right"
-                                                    title="Thursday 12th September 2019 22:30:01"
-                                                    data-timeago="2019-09-12T22:30:01+01:00"></abbr></a>
-                                        </small>
-                                    </div>
-                                    <div class="panel-body markdown-body">
-                                        <p>:+1: We totally nailed the fix.</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="moment ">
-                        <div class="row event clearfix">
-                            <div class="col-sm-1">
-                                <div class="status-icon status-3" data-toggle="tooltip" title="Watching"
-                                    data-placement="left">
-                                    <i class="icon ion-eye blues"></i>
-                                </div>
-                            </div>
-                            <div class="col-xs-10 col-xs-offset-2 col-sm-11 col-sm-offset-0">
-                                <div class="panel panel-message incident">
-                                    <div class="panel-heading">
-                                        <strong>Monitoring the fix</strong>
-                                        <br>
-                                        <small class="date">
-                                            <a href="https://demo.cachethq.io/incident/3" class="links"><abbr
-                                                    class="timeago" data-toggle="tooltip" data-placement="right"
-                                                    title="Thursday 12th September 2019 22:30:01"
-                                                    data-timeago="2019-09-12T22:30:01+01:00"></abbr></a>
-                                        </small>
-                                    </div>
-                                    <div class="panel-body markdown-body">
-                                        <p>:ship: We've deployed a fix.</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="moment ">
-                        <div class="row event clearfix">
-                            <div class="col-sm-1">
-                                <div class="status-icon status-2" data-toggle="tooltip" title="Identified"
-                                    data-placement="left">
-                                    <i class="icon ion-alert yellows"></i>
-                                </div>
-                            </div>
-                            <div class="col-xs-10 col-xs-offset-2 col-sm-11 col-sm-offset-0">
-                                <div class="panel panel-message incident">
-                                    <div class="panel-heading">
-                                        <strong>Update</strong>
-                                        <br>
-                                        <small class="date">
-                                            <a href="https://demo.cachethq.io/incident/4" class="links"><abbr
-                                                    class="timeago" data-toggle="tooltip" data-placement="right"
-                                                    title="Thursday 12th September 2019 22:30:01"
-                                                    data-timeago="2019-09-12T22:30:01+01:00"></abbr></a>
-                                        </small>
-                                    </div>
-                                    <div class="panel-body markdown-body">
-                                        <p>We've identified the problem. Our engineers are currently looking at it.</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="moment ">
-                        <div class="row event clearfix">
-                            <div class="col-sm-1">
-                                <div class="status-icon status-1" data-toggle="tooltip" title="Investigating"
-                                    data-placement="left">
-                                    <i class="icon ion-flag oranges"></i>
-                                </div>
-                            </div>
-                            <div class="col-xs-10 col-xs-offset-2 col-sm-11 col-sm-offset-0">
-                                <div class="panel panel-message incident">
-                                    <div class="panel-heading">
-                                        <strong>Test Incident</strong>
-                                        <br>
-                                        <small class="date">
-                                            <a href="https://demo.cachethq.io/incident/5" class="links"><abbr
-                                                    class="timeago" data-toggle="tooltip" data-placement="right"
-                                                    title="Thursday 12th September 2019 22:30:01"
-                                                    data-timeago="2019-09-12T22:30:01+01:00"></abbr></a>
-                                        </small>
-                                    </div>
-                                    <div class="panel-body markdown-body">
-                                        <p>Something went wrong, with something or another.</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="moment ">
-                        <div class="row event clearfix">
-                            <div class="col-sm-1">
-                                <div class="status-icon status-1" data-toggle="tooltip" title="Investigating"
-                                    data-placement="left">
-                                    <i class="icon ion-flag oranges"></i>
-                                </div>
-                            </div>
-                            <div class="col-xs-10 col-xs-offset-2 col-sm-11 col-sm-offset-0">
-                                <div class="panel panel-message incident">
-                                    <div class="panel-heading">
-                                        <span class="label label-default">API</span>
-                                        <strong>Investigating the API</strong>
-                                        <br>
-                                        <small class="date">
-                                            <a href="https://demo.cachethq.io/incident/6" class="links"><abbr
-                                                    class="timeago" data-toggle="tooltip" data-placement="right"
-                                                    title="Thursday 12th September 2019 22:30:01"
-                                                    data-timeago="2019-09-12T22:30:01+01:00"></abbr></a>
-                                        </small>
-                                    </div>
-                                    <div class="panel-body markdown-body">
-                                        <p>:zap: We've seen high response times from our API. It looks to be fixing
-                                            itself as time goes on.</p>
-
-                                    </div>
-                                </div>
+                            <div class="col-10">
+                                <h4 class="card-title">Disponível</h4>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <h4>11th September 2019</h4>
-            <div class="timeline">
-                <div class="content-wrapper">
-                    <div class="panel panel-message incident">
-                        <div class="panel-body">
-                            <p>No incidents reported</p>
+        </div>            
+
+        <div class="row justify-content-center section">
+            <div class="col-lg-8">
+                <div class="card text-white bg-dark border-secondary">
+                    <div class="card-header">Localização</div>
+                    <div class="card-body">
+                        <div class="row justify-content-center">
+                            <div class="col-2 text-center">
+                                <i class="icon ion-md-pin" style="font-size: 3em;"></i>
+                            </div>
+                            <div class="col-10">
+                                <h4 class="card-title">{{ $place_name }}</h4>
+                                <p class="card-text">Essa localização é aproximada e baseada no acesso ao AP <em>{{ $place_ap }}</em>.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <h4>10th September 2019</h4>
-            <div class="timeline">
-                <div class="content-wrapper">
-                    <div class="panel panel-message incident">
-                        <div class="panel-body">
-                            <p>No incidents reported</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <h4>9th September 2019</h4>
-            <div class="timeline">
-                <div class="content-wrapper">
-                    <div class="panel panel-message incident">
-                        <div class="panel-body">
-                            <p>No incidents reported</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <h4>8th September 2019</h4>
-            <div class="timeline">
-                <div class="content-wrapper">
-                    <div class="panel panel-message incident">
-                        <div class="panel-body">
-                            <p>No incidents reported</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <h4>7th September 2019</h4>
-            <div class="timeline">
-                <div class="content-wrapper">
-                    <div class="panel panel-message incident">
-                        <div class="panel-body">
-                            <p>No incidents reported</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <h4>6th September 2019</h4>
-            <div class="timeline">
-                <div class="content-wrapper">
-                    <div class="panel panel-message incident">
-                        <div class="panel-body">
-                            <p>No incidents reported</p>
-                        </div>
+                    <div class="card-footer text-muted">
+                        Visto nesse local há 5 minutos atrás.
                     </div>
                 </div>
             </div>
         </div>
 
-        <nav>
-            <ul class="pager">
-            </ul>
-        </nav>
-
+        <div class="row justify-content-center section">
+            <div class="col-lg-8">
+                <div class="card text-white bg-dark border-secondary">
+                    <div class="card-header">Próximos compromissos</div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><span class="text-muted"><i class="icon ion-md-calendar"></i> 14/09 - 16:00</span> Reunião do colegiado</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <small><i class="icon ion-md-warning"></i> Essa informação foi obtida de forma automática. Consulte a pessoa para confirmar os compromissos.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-5">
-                    <p>Powered by <a href="https://cachethq.io" class="links">Cachet</a>.</p>
-                </div>
-                <div class="col-sm-7">
-                    <ul class="list-inline">
-                        <li>
-                            <a class="btn btn-link" href="/dashboard">Dashboard</a>
-                        </li>
-                        <li>
-                            <a class="btn btn-link" href="https://demo.cachethq.io/rss">RSS</a>
-                        </li>
-                        <li>
-                            <a class="btn btn-link" href="https://demo.cachethq.io/atom">Atom</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    <footer class="fdb-block footer-large bg-dark">
+      <div class="container">
+        <div class="row align-items-top text-center text-md-left">
+          <div class="col-3 text-md-left">
+            <h3><strong>About Us</strong></h3>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+          </div>
+
+          <div class="col-3"></div>
+    
+          <div class="col-3">
+            <h3><strong>Country B</strong></h3>
+            <p>Street Address 100<br>Contact Name</p>
+            <p>+13 827 312 5002</p>
+            <p><a href="https://www.froala.com">countryb@amazing.com</a></p>
+          </div>
+
+          <div class="col-3">
+            <h3><strong>Country B</strong></h3>
+            <p>Street Address 100<br>Contact Name</p>
+            <p>+13 827 312 5002</p>
+            <p><a href="https://www.froala.com">countryb@amazing.com</a></p>
+          </div>
         </div>
+    
+        <div class="row mt-5">
+          <div class="col text-center text-muted">
+            © 2018 Froala. All Rights Reserved
+          </div>
+        </div>
+      </div>
     </footer>
-
-</body>
-
+  </body>
 </html>

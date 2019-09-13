@@ -20,6 +20,16 @@ crontab -e
 * * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
 ```
 
+## Dev
+
+```
+php artisan make:migration create_users_table --create=users
+```
+
+```
+php artisan migrate
+```
+
 ## Teste
 
 ```

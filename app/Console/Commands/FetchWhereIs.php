@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
  
 use Illuminate\Console\Command;
+use Ixudra\Curl\Facades\Curl;
  
 class FetchWhereIs extends Command
 {
@@ -37,6 +38,12 @@ class FetchWhereIs extends Command
      */
     public function handle()
     {
+        $this->fetchFromEndpoint('fernando.bevilacqua');
         $this->info('Dados da API "whereis" buscados com sucesso.');
+    }
+
+    private function fetchFromEndpoint($id) {
+        $endpoint_url = 'http://172.20.67.219:7000/';
+        $response = Curl::to($endpoint_url)->get();
     }
 }
