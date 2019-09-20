@@ -71,11 +71,13 @@ class UserUpdate extends Command
 
         $update = array();
         $changes = array(
-            'name'    => 'Qual o novo nome completo? [ENTER mantem "%s"]',
-            'uid'     => 'Qual o novo idUFFS? [ENTER mantem "%s"]',
-            'email'   => 'Qual o novo e-mail? [ENTER mantem "%s"]',
-            'api_key' => 'Qual a nova api_key? [ENTER mantem "%s"]',
-            'device'  => 'Qual o novo MAC do dispositivo? [ENTER mantem "%s"]'
+            'name'     => 'Qual o novo nome completo? [ENTER mantem "%s"]',
+            'position' => 'Qual a nova posição? [ENTER mantem "%s"]?',
+            'addrress' => 'Qual o novo endereço? [ENTER mantem "%s"]',
+            'uid'      => 'Qual o novo idUFFS? [ENTER mantem "%s"]',
+            'email'    => 'Qual o novo e-mail? [ENTER mantem "%s"]',
+            'api_key'  => 'Qual a nova api_key? [ENTER mantem "%s"]',
+            'device'   => 'Qual o novo MAC do dispositivo? [ENTER mantem "%s"]'
         );
 
         $this->printUser($user);

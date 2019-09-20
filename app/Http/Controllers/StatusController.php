@@ -34,7 +34,7 @@ class StatusController extends Controller
         return $place;
     }
 
-    private function getFieldNameFromCredential($credential) {
+    private function getTypeFromCredentialValue($credential) {
         // Decidir campo e valor com base no tipo, e.g. idUFFS, email, etc.
         return 'uid';
     }
@@ -58,7 +58,7 @@ class StatusController extends Controller
     }
 
     private function getUserByCredential($credential) {
-        $field = $this->getFieldNameFromCredential($credential);
+        $field = $this->getTypeFromCredentialValue($credential);
 
         $user = DB::table('users')
             ->where($field, $credential)
@@ -73,7 +73,10 @@ class StatusController extends Controller
         $user = $this->getUserByCredential($credential);
 
         if($user == null) {
-            return view('notfound', ['credential_value' => $credential, 'credential_name' => $field]);
+            return view('notfound', [
+                'credential_value' => $credential,
+                'credential_name'  => $this->getTypeFromCredentialValue($credential)
+            ]);
         }
 
         $log = $this->getLogFromUserId($user->id);

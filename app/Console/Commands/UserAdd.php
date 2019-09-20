@@ -39,24 +39,32 @@ class UserAdd extends Command
      */
     public function handle()
     {
-        $name = $this->ask('Qual o nome completo?');
-        $uid = $this->ask('Qual o idUFFS?');
-        $email = $this->ask('Qual o e-mail?');
-        $apiKey = $this->ask('Qual a api_key');
-        $device = $this->ask('Qual o MAC do dispositivo?');
+        $user = array();
+        $fields = array(
+            'name'     => 'Qual o nome completo?',
+            'position' => 'Qual a posição? (ex. Professor Letras)?',
+            'addrress' => 'Qual o endereço? (ex.: Chapecó/SC)',
+            'uid'      => 'Qual o idUFFS?',
+            'email'    => 'Qual o e-mail?',
+            'api_key'  => 'Qual a api_key?',
+            'device'   => 'Qual o MAC do dispositivo?'
+        );
 
-        DB::table('users')->insert([
-            'name'         => $data->ap,
-            'uid'         => $data->ip,
-            'email'  => $data->loginTime,
-            'api_key'       => $data->wlan,
-            'device' => time(),
-            'created_at' => 0,
-            'created_at' => 0,
-            'created_at' => time(),
-            'updated_at' => time()
-        ]);
+        foreach($fields as $field => $question) {
+            do {
+                $value = $this->ask($question);
+            } while (empty($value));
+
+            $user[$field] = $value;
+        }
+
+        $user['checked_at'] = 0;
+        $user['next_check_at'] = 0;
+        $user['created_at'] = time();
+        $user['updated_at'] = time();
+
+        DB::table('users')->insert($user);
        
-        $this->info('Dados da API "whereis" buscados com sucesso!');
+        $this->comment('Usuário "'. $user['name'] .'" criado com sucesso!');
     }
 }
