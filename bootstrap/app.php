@@ -21,13 +21,11 @@ $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 
-$app->withFacades();
+$app->withFacades(true, [
+    'Ixudra\Curl\Facades\Curl' => 'Curl'
+]);
 
 // $app->withEloquent();
-
-if (!class_exists('Curl')) {
-    class_alias('Ixudra\Curl\Facades\Curl', 'Curl');
-}
 
 /*
 |--------------------------------------------------------------------------

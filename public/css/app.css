@@ -11,6 +11,10 @@ div.row.section {
     padding-top: 1.0em;
 }
 
+.card-text {
+    line-height: 1.3em;
+}
+
 h4.card-title {
     font-size: 1.3em;
     margin-bottom: 0.1em;
@@ -21,17 +25,61 @@ h4.card-title {
 }
 
 .status-icon-col {
-    position: relative;
 }
 
 .status-icon {
     font-size: 5em;
-    position: absolute;
-    top: -20%;
-    left: 35%;
+}
+
+div.card.status div.content {
+    padding-top: 0.8em;
+    line-height: 1.2em;
+}
+
+div.card.status-meta .card-body {
+    font-size: 0.9em;
+}
+
+
+.card-footer i.icon {
+    margin-right: 0.5em;
+    font-size: 1.3em;
 }
 
 .info-icon {
     font-size: 3.0em;
     color: #b8b8b8;
+}
+
+.profile-info {
+    line-height: 0.9em;
+}
+
+.profile-info h2 {
+    margin-bottom: 0.1em;
+    color: #eeeeee;
+}
+
+.profile-info h3 {
+    margin-bottom: 0;
+    color: #979797;
+}
+
+.profile-info p {
+    color: #979797;
+}
+
+.calendar-icon {
+    font-size: 1.1em;
+    margin-right: 0.5em;
+}
+
+.calendar-date {
+    margin-right: 0.5em;
+    font-weight: bold;
+    font-size: 1.05em;
+}
+
+.calendar-event {
+    font-size: 1em;
 }

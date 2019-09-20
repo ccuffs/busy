@@ -69,30 +69,30 @@
     <div class="container">
         <div class="row text-center justify-content-center">
             <div class="col-sm-2 m-sm-auto">
-                <img alt="image" class="img-fluid rounded-circle" src="./img/people/7.jpg">
+                <img alt="image" class="img-fluid rounded-circle" src="{{ $profile_img }}">
             </div>
         </div>
 
         <div class="row text-center justify-content-center">
-            <div class="col-sm-6 m-sm-auto">
+            <div class="col-sm-6 m-sm-auto profile-info">
                 <h2>{{ $name }}</h2>
-                <h3>Ciência da Computação</h3>
-                <p>Professor, Chapecó/SC</p>
+                <h3>{{ $position }}</h3>
+                <p>{{ $address }}</p>
             </div>
         </div>
 
         <div class="row justify-content-center section">
             <div class="col-lg-8">
-                <div class="card text-white bg-dark border-success">
-                    <div class="card-header bg-success">Status</div>
+                <div class="card text-white bg-dark border-{{ $status->style }} status">
+                    <div class="card-header bg-{{ $status->style }}">Status</div>
                     <div class="card-body">
                         <div class="row justify-content-center">
                             <div class="col-2 text-center status-icon-col">
-                                <i class="icon ion-md-checkmark-circle-outline status-icon text-success"></i>
+                                <i class="icon {{ $status->icon }} status-icon text-{{ $status->style }}"></i>
                             </div>
-                            <div class="col-10">
-                                <h4 class="card-title">Disponível</h4>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="col-10 content">
+                                <h4 class="card-title">{{ $status->name }}</h4>
+                                <p class="card-text">{{ $status->description }}</p>
                             </div>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
 
         <div class="row justify-content-center section">
             <div class="col-lg-8">
-                <div class="card text-white bg-dark border-secondary">
+                <div class="card text-white bg-dark border-secondary status-meta">
                     <div class="card-header">Localização</div>
                     <div class="card-body">
                         <div class="row justify-content-center">
@@ -111,12 +111,12 @@
                             </div>
                             <div class="col-10">
                                 <h4 class="card-title">{{ $place_name }}</h4>
-                                <p class="card-text">Essa localização é aproximada e baseada no acesso ao AP <em>{{ $place_ap }}</em>.</p>
+                                <p class="card-text">{{ $place_address }}. Essa localização é aproximada com base no acesso à rede wifi <em>{{ $place_wlan }} ({{ $place_ap }})</em>.</p>
                             </div>
                         </div>
                     </div>
                     <div class="card-footer text-muted">
-                        Visto nesse local há 5 minutos atrás.
+                        <small><i class="icon ion-md-time"></i> Atualizado {{ $elapsed_update }}.</small>
                     </div>
                 </div>
             </div>
@@ -128,11 +128,15 @@
                     <div class="card-header">Próximos compromissos</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><span class="text-muted"><i class="icon ion-md-calendar"></i> 14/09 - 16:00</span> Reunião do colegiado</li>
+                            <li class="list-group-item">
+                                <i class="icon ion-md-calendar calendar-icon text-muted"></i>
+                                <span class="text-muted calendar-date">14/09 - 16:00</span>
+                                <span class="calendar-event">Reunião do colegiado</span>
+                            </li>
                         </ul>
                     </div>
                     <div class="card-footer text-muted">
-                        <small><i class="icon ion-md-warning"></i> Essa informação foi obtida de forma automática. Consulte a pessoa para confirmar os compromissos.</small>
+                        <small><i class="icon ion-md-warning"></i> Informação obtida de forma automática. Consulte a pessoa para confirmar os compromissos.</small>
                     </div>
                 </div>
             </div>

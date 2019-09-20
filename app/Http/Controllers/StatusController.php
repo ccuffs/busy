@@ -16,20 +16,20 @@ class StatusController extends Controller
     }
 
     private function findPlaceByAp($ap) {
+        $place = new \stdClass();
+        $place->id = 0;
+        $place->name = 'Desconhecido';
+        $place->address = 'Desconhecido';
+
         if(empty($ap)) {
-            throw new \Exception('AP vazio');
+            return $place;
         }
 
-        $registeredPlace = DB::table('places')->where('name', '=', $ap)->first();
+        $registeredPlace = DB::table('places')->where('hint', '=', $ap)->first();
 
         if($registeredPlace != null) {
             return $registeredPlace;
         }
-
-        $place = new \stdClass();
-        $place->id = 0;
-        $place->name = 'Desconhecido';
-        $place->addrress = 'Desconhecido';
 
         return $place;
     }
@@ -51,7 +51,8 @@ class StatusController extends Controller
         } else {
             $log = new \stdClass();
             $log->fk_user_id = $userId;
-            $log->ap = '';
+            $log->ap = 'desconhecido';
+            $log->wlan = 'wifi';
         }
 
         return $log;
@@ -68,6 +69,38 @@ class StatusController extends Controller
 
     }
 
+    private function shortenName($name) {
+        if(empty($name)) {
+            return '';
+        }
+
+        $parts = explode(' ', $name);
+        $short = isset($parts[0]) ? $parts[0] : $name;
+
+        return $short;
+    }
+
+    private function generateStatus($user, $log) {
+        $shortName = $this->shortenName($user->name);
+        $status = new \stdClass();
+
+        $status->name = 'Disponível';
+        $status->style = 'success';
+        $status->icon = 'ion-md-checkmark-circle-outline';
+        $status->description = $shortName . ' está no local indicado abaixo e parece não estar envolvido em atividade agendada previamente.';
+
+        return $status;
+    }
+
+    private function generateElapsedUpdate($user, $log) {
+        return 'há 5 min atrás';
+    }
+
+    private function profileImgSrc($user) {
+        // TODO: use a service for this
+        return 'https://moodle-academico.uffs.edu.br/pluginfile.php/5588/user/icon/more/f1?rev=1551502';
+    }
+
     public function show($credential)
     {
         $user = $this->getUserByCredential($credential);
@@ -81,11 +114,19 @@ class StatusController extends Controller
 
         $log = $this->getLogFromUserId($user->id);
         $place = $this->findPlaceByAp($log->ap);
+        $status = $this->generateStatus($user, $log);
 
         return view('status', [
-            'name'       => $user->name,
-            'place_name' => $place->name,
-            'place_ap'   => $log->ap
+            'name'           => $user->name,
+            'position'       => $user->position,
+            'address'        => $user->address,
+            'profile_img'    => $this->profileImgSrc($user),
+            'status'         => $status,
+            'place_name'     => $place->name,
+            'place_address'  => $place->address,
+            'place_ap'       => $log->ap,
+            'place_wlan'     => $log->wlan,
+            'elapsed_update' => $this->generateElapsedUpdate($user, $log)
         ]);
     }
 }
