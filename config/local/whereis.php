@@ -6,5 +6,3 @@ return [
         'api_key' => 'x-api-key'
     ],
 ]
-
-?>

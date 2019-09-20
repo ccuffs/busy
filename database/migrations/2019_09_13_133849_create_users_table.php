@@ -20,6 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('email', 255)->unique();
             $table->string('api_key', 200);
             $table->macAddress('device');
+            $table->timestamp('checked_at');
+            $table->timestamp('next_check_at');
             $table->timestamps();
         });
     }
