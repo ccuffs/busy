@@ -21,6 +21,13 @@ class WhereIsFetch extends Command
      * @var string
      */
     protected $description = 'Busca dados da API "whereis" da SETI/UFFS.';
+
+    /**
+     * Configurações de acesso à API.
+     *
+     * @var array
+     */
+    protected $config;
  
     /**
      * Create a new command instance.
@@ -30,8 +37,27 @@ class WhereIsFetch extends Command
     public function __construct()
     {
         parent::__construct();
+        $this->loadConfig();
     }
  
+    private function loadConfig() {
+        $file_name = 'whereis.ini';
+        $base_path = dirname(__FILE__) . '/../../../config/';
+
+        if(app()->environment('local')) {
+            $base_path .= 'local/';
+        }
+
+        $file_path = $base_path . $file_name;
+        $config = parse_ini_file($file_path, true);
+
+        if($config === FALSE) {
+            throw new \Exception('Erro ao carregar arquivo de configuração whereis.ini (path="'.$file_path.'")');
+        }
+
+        $this->config = $config;
+    }
+
     /**
      * Execute the console command.
      *
@@ -42,21 +68,22 @@ class WhereIsFetch extends Command
         DB::table('users')
             ->where('next_check_at', '<=', time())
             ->orderBy('next_check_at')
-            ->chunk(100, function ($users) {
+            ->chunk($this->config['update_chunck_size'], function ($users) {
                 foreach ($users as $user) {
                     $this->fetchUser($user);
                 }
+                sleep($this->config['chunk_wait_seconds']);
             });
         
         $this->info('Dados da API "whereis" buscados com sucesso!');
     }
 
     private function generateTimestampNextFetch() {
-        $minMinutes = 3;
+        $minMinutes = $this->config['update_interval_minutes'];
 
         $intervalSeconds = $minMinutes * 60;
-        $intervalRandSeconds = rand(0, (int)($intervalSeconds * 0.30));
-        $intervalSeconds += $intervalRandSeconds;
+        $randAdditionSeconds = rand(0, (int)($intervalSeconds * $this->config['update_interval_rand_percentage']));
+        $intervalSeconds += $randAdditionSeconds;
 
         $timestamp = time() + $intervalSeconds;
         return $timestamp;
@@ -108,7 +135,7 @@ class WhereIsFetch extends Command
             throw new \Exception('API key inválida para usuário "' . $user->name . '" (id=' . $user->id . ')');            
         }
 
-        $endpointUrl = 'http://dev.local.com/busy/public/test-api.php?';
+        $endpointUrl = $this->config['endpoint_url'];
         $url = $endpointUrl . $user->device;
         
         $response = Curl::to($url)
@@ -119,7 +146,7 @@ class WhereIsFetch extends Command
             ->get();
 
         if($response->status != 200) {
-            $this->error('Problema no fetch do uid="'.$user->uid.'":' . $response->error);
+            $this->error('Problema no fetch do uid="'.$user->uid.'": ' . print_r($response, true));
             return null;
         }
 
