@@ -76,7 +76,7 @@
         <div class="row text-center justify-content-center">
             <div class="col-sm-6 m-sm-auto">
                 <h2>Hum, algo está errado.</h2>
-                <p>O idUFFS <strong>{{ $uid }}</strong> é inválido. <br />Você tem certeza que digitou ele certo?</p>
+                <p>O {{ $credential_name }} <strong>{{ $credential_value }}</strong> é inválido. <br />Você tem certeza que digitou certo?</p>
             </div>
         </div>
     </div>
