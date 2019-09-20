@@ -73,7 +73,7 @@ class UserUpdate extends Command
         $changes = array(
             'name'     => 'Qual o novo nome completo? [ENTER mantem "%s"]',
             'position' => 'Qual a nova posição? [ENTER mantem "%s"]?',
-            'addrress' => 'Qual o novo endereço? [ENTER mantem "%s"]',
+            'address'  => 'Qual o novo endereço? [ENTER mantem "%s"]',
             'uid'      => 'Qual o novo idUFFS? [ENTER mantem "%s"]',
             'email'    => 'Qual o novo e-mail? [ENTER mantem "%s"]',
             'api_key'  => 'Qual a nova api_key? [ENTER mantem "%s"]',

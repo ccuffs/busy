@@ -43,7 +43,7 @@ class UserAdd extends Command
         $fields = array(
             'name'     => 'Qual o nome completo?',
             'position' => 'Qual a posição? (ex. Professor Letras)?',
-            'addrress' => 'Qual o endereço? (ex.: Chapecó/SC)',
+            'address'  => 'Qual o endereço? (ex.: Chapecó/SC)',
             'uid'      => 'Qual o idUFFS?',
             'email'    => 'Qual o e-mail?',
             'api_key'  => 'Qual a api_key?',
