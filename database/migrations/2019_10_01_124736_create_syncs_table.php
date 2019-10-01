@@ -17,7 +17,7 @@ class CreateSyncsTable extends Migration
             $table->increments('id');
             $this->string('name');
             $table->string('api_key', 64);
-            $table->unsignedInteger('max_log_id');
+            $table->unsignedInteger('current_logs_id');
             $table->timestamps();
         });
     }
