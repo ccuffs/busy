@@ -13,6 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
+        Commands\SyncRun::class,
         Commands\WhereIsFetch::class,
         Commands\UserAdd::class,
         Commands\UserUpdate::class,

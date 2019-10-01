@@ -15,4 +15,9 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
+// Status routes
 $router->get('/{credential}', 'StatusController@show');
+
+// Sync routes
+$router->post('/sync/put',    ['middleware' => 'apiAuth', 'SyncController@put']);
+$router->get('/sync/current', ['middleware' => 'apiAuth', 'SyncController@current']);
