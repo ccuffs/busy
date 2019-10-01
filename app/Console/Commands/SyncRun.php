@@ -51,23 +51,28 @@ class SyncRun extends Command
         if(empty($this->config['url'])) {
             // Essa entidade está rodando como mestre
             // Não enviamos nada, só recebemos.
+            $this->info('Sem URL para sync. Essa entidade não pode rodar "' . $this->signature . '".');
             return;
         }
 
-        $currentId = $this->fetchCurrentId();
-        dd($currentId);
-
-        DB::table('users')
-            ->where('next_check_at', '<=', time())
-            ->orderBy('next_check_at')
-            ->chunk($this->config['update_chunck_size'], function ($users) {
-                foreach ($users as $user) {
-                    $this->fetchUser($user);
-                }
-                sleep($this->config['chunk_wait_seconds']);
+        DB::table('logs')
+            ->where('syncd', false)
+            ->chunkById(100, function ($logs) {
+                    $this->info('Iniciando novo batch');
+                    foreach ($logs as $log) {
+                        try {
+                            $ok = $this->sendLog($log);
+                            if($ok) {
+                                DB::table('logs')->where('id', $log->id)->update(['syncd' => true]);
+                            }
+                            sleep(0.1);
+                        } catch(\Exception $e) {
+                            $this->warn($e->getMessage());
+                        }
+                    }
             });
-        
-        $this->info('Dados da API "whereis" buscados com sucesso!');
+
+        $this->info('Sync finalizado!');
     }
 
     private function loadConfig() {
@@ -85,25 +90,35 @@ class SyncRun extends Command
         return $url;
     }
 
-    private function fetchCurrentId() {
-        $url = $this->sanitizeURL($this->config['url']);
-        $url .= 'current';
+    private function getSyncEndpoindURL() {
+        return $this->sanitizeURL($this->config['url']) . 'put';
+    }
+
+    private function sendLog($log) {
+        $logAsArray = json_decode(json_encode($log), true);
+        $data = array_merge(
+            $this->config,
+            $logAsArray
+        );
+
+        $url = $this->getSyncEndpoindURL();
+        $this->comment(' enviando: id=' . $log->id . ', fk_user_id=' . $log->id . ', loginTime=' . $log->loginTime);
 
         $response = Curl::to($url)
-            ->withData($this->config)
-            ->withTimeout(10)
+            ->withData($data)
+            ->withTimeout(2)
             ->returnResponseObject()
             ->asJsonResponse()
-            ->get();
+            ->post();
 
         if($response->status != 200) {
-            $this->error('Erro fetchCurrentId: URL="'.$url.'", response=' . print_r($response, true));
-            exit(1);
+            throw new \Exception('falha de acesso em URL="'.$url.'", response=' . print_r($response, true));
         }
 
         if(isset($response->content->error)) {
-            $this->warn('Sync negou acesso: URL="'.$url.'", response="' . $response->content->message . '"');
-            exit(2);
+            throw new \Exception($response->content->message);
         }
+
+        return true;
     }
 }

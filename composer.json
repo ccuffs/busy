@@ -6,8 +6,9 @@
     "type": "project",
     "require": {
         "php": "^7.2",
-        "laravel/lumen-framework": "^6.0",
-        "ixudra/curl": "6.*"
+        "doctrine/dbal": "^2.9",
+        "ixudra/curl": "6.*",
+        "laravel/lumen-framework": "^6.0"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.4",

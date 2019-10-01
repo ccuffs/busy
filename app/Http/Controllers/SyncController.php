@@ -14,24 +14,33 @@ class SyncController extends Controller
      */
     public function __construct()
     {
+        $this->middleware('apiAuth');
     }
 
     public function put(Request $request)
     {
-        dd($request);
-    }
+        $log = array(
+            'fk_user_id' => $request->fk_user_id,
+            'ap'         => $request->ap,
+            'ip'         => $request->ip,
+            'loginTime'  => $request->loginTime,
+            'wlan'       => $request->wlan,
+            'created_at' => $request->created_at,
+            'updated_at' => $request->updated_at,
+            'syncd'      => true
+        );
 
-    public function current(Request $request)
-    {
-        $node = $this->getNodeFromApiKey($request->api_key);
-
-        return response()->json([
-            'blah' => true,
-            'message' => 'blah api key for sync node with name'
-        ]);
-    }
-
-    private function getNodeFromApiKey($apiKey) {
-        return null;
+        try {
+            $id = DB::table('logs')->insertGetId($log);
+            return response()->json([
+                'success' => true,
+                'id'      => $id
+            ]);
+        } catch(\Exception $e) {
+            return response()->json([
+                'error'   => true,
+                'message' => $e->getMessage()
+            ]);
+        }
     }
 }

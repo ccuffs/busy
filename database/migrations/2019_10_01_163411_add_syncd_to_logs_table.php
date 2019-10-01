@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddPlacesTable extends Migration
+class AddSyncdToLogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class AddPlacesTable extends Migration
      */
     public function up()
     {
-        Schema::create('places', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('hint', 255);
-            $table->string('name', 100);
-            $table->string('address', 255);
-            $table->timestamps();
+        Schema::table('logs', function (Blueprint $table) {
+            $table->boolean('syncd')->nullable(false)->default(false);
         });
     }
 
@@ -29,6 +25,8 @@ class AddPlacesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('places');
+        Schema::table('logs', function (Blueprint $table) {
+            $table->dropColumn('syncd');
+        });
     }
 }
